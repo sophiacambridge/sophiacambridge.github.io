@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sophia의 행복한 공간 ✨</title>
     <style>
-        /* 기본 스타일 */
+        /* 기본 스타일 설정 */
         body {
             background-color: #fff9fb;
             font-family: "Nanum Gothic", sans-serif;
@@ -17,7 +17,7 @@
             min-height: 100vh;
         }
 
-        /* 상단 고정 메뉴 */
+        /* 상단 고정 메뉴 (네비게이션) */
         nav {
             position: fixed;
             top: 0;
@@ -39,7 +39,7 @@
             text-decoration: none;
             color: #ff7eb3;
             font-weight: bold;
-            padding: 8px 12px;
+            padding: 8px 15px;
             border-radius: 10px;
             cursor: pointer;
             transition: 0.3s;
@@ -57,98 +57,130 @@
             padding-bottom: 50px;
         }
 
-        /* 섹션 기본 숨김 처리 */
+        /* 섹션 숨김/표시 설정 */
         .content-section {
-            display: none; /* 처음엔 다 숨겨요 */
+            display: none;
             background: white;
             padding: 40px;
             border-radius: 25px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            animation: fadeIn 0.5s ease; /* 나타날 때 부드럽게 */
+            animation: fadeIn 0.5s ease;
         }
-
-        /* 활성화된 섹션만 보여줌 */
-        .content-section.active {
-            display: block;
-        }
+        .content-section.active { display: block; }
 
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* 개별 스타일들 */
+        /* 공통 스타일 */
         h1, h2 { color: #ff7eb3; }
-        .welcome-img { width: 100%; max-width: 400px; border-radius: 20px; margin: 20px 0; }
+        .welcome-img { width: 100%; max-width: 500px; border-radius: 20px; margin: 20px 0; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
         
-        /* 보넥도 & 게임 그리드 (이전 스타일 유지) */
-        .grid-layout { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 15px; margin-top: 20px; }
-        .card { background: #f8fbff; padding: 20px; border-radius: 15px; border: 1px solid #eef5ff; text-align: center; text-decoration: none; transition: 0.3s; }
-        .card:hover { transform: translateY(-5px); background: #eef5ff; }
+        /* 그리드 레이아웃 (카드형 디자인) */
+        .grid-layout { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 15px; margin: 20px 0; }
+        .card { background: #f8fbff; padding: 20px; border-radius: 15px; border: 1px solid #eef5ff; text-align: center; text-decoration: none; transition: 0.3s; color: inherit; }
+        .card:hover { transform: translateY(-5px); background: #eef5ff; border-color: #d1e7ff; }
         .card-icon { font-size: 2em; margin-bottom: 10px; }
         .card-title { font-weight: bold; color: #0984e3; display: block; }
         
-        .play-btn { display: inline-block; margin-top: 10px; padding: 5px 15px; background: #74b9ff; color: white; border-radius: 5px; text-decoration: none; font-size: 0.8em; }
+        /* 뉴스/행사 리스트 스타일 */
+        .info-box { text-align: left; background: #fff; padding: 20px; border-radius: 15px; border: 1px solid #d1e7ff; margin-top: 20px; }
+        .info-box h3 { color: #0984e3; border-bottom: 2px solid #d1e7ff; padding-bottom: 10px; font-size: 1.1em; }
+        .info-list { list-style: none; padding: 0; line-height: 2.2; }
+        .info-list li a { text-decoration: none; color: #444; font-size: 0.95em; }
+        .info-list li a:hover { color: #0984e3; text-decoration: underline; }
+        .more-link { color: #ff7eb3; font-weight: bold; font-size: 0.85em; text-decoration: none; display: inline-block; margin-top: 10px; }
 
-        footer { margin-top: auto; padding: 30px; color: #aaa; font-size: 0.9em; }
+        /* 게임 버튼 */
+        .play-btn { display: inline-block; margin-top: 10px; padding: 6px 15px; background: #74b9ff; color: white; border-radius: 8px; text-decoration: none; font-size: 0.85em; font-weight: bold; }
+        .play-btn:hover { background: #0984e3; }
+
+        footer { margin-top: auto; padding: 30px; color: #aaa; font-size: 0.9em; text-align: center; }
     </style>
 </head>
 <body>
 
     <nav>
         <ul>
-            <li><a onclick="showSection('home')" id="link-home" class="active">Home</a></li>
-            <li><a onclick="showSection('school')">학교생활</a></li>
-            <li><a onclick="showSection('uk')">영국생활</a></li>
-            <li><a onclick="showSection('idol')">보넥도</a></li>
-            <li><a onclick="showSection('game')">게임</a></li>
+            <li><a onclick="showSection('home')" id="nav-home" class="active">Home</a></li>
+            <li><a onclick="showSection('school')" id="nav-school">학교생활</a></li>
+            <li><a onclick="showSection('uk')" id="nav-uk">영국생활</a></li>
+            <li><a onclick="showSection('idol')" id="nav-idol">보넥도</a></li>
+            <li><a onclick="showSection('game')" id="nav-game">게임</a></li>
         </ul>
     </nav>
 
     <main>
         <section id="home" class="content-section active">
             <h1>Welcome to Sophia's World! ✨</h1>
-            <p>소피아의 행복한 공간에 오신 것을 환영합니다.</p>
-            <img src="https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?w=500" alt="Welcome" class="welcome-img">
-            <p>상단 메뉴를 클릭해서 저의 이야기를 구경해 보세요!</p>
+            <p>sophiacambridge.github.io에 오신 걸 환영해요.</p>
+            <img src="https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?w=800" alt="Welcome Image" class="welcome-img">
+            <p>위의 메뉴를 눌러 소피아의 즐거운 이야기들을 구경해보세요!</p>
         </section>
 
         <section id="school" class="content-section">
-            <h2>🏫 학교 생활</h2>
-            <p>친구들과 함께 공부하고 뛰어노는 즐거운 학교 이야기 공간입니다.</p>
-            <p>앞으로 이곳에 재미있는 학교 소식들을 채워나갈 거예요!</p>
+            <h2>🏫 즐거운 학교 생활</h2>
+            <p>친구들과 함께 공부하고 신나게 뛰어노는 학교 이야기를 담는 곳입니다.</p>
+            <p>준비 중인 재미있는 소식들을 기대해 주세요!</p>
         </section>
 
         <section id="uk" class="content-section">
-            <h2>🇬🇧 영국 생활 이야기</h2>
-            <div class="card" style="text-align: left; margin-bottom: 20px;">
-                <h3>🏖️ 본머스 (Bournemouth)</h3>
-                <p>영국 남부의 아름다운 해변 도시!</p>
-                <a href="https://www.google.com/search?tbm=isch&q=Bournemouth+beach" target="_blank" style="color:#0984e3;">📸 사진 구경하기</a>
-            </div>
-            <div class="card" style="text-align: left;">
-                <h3>🎓 케임브리지 (Cambridge)</h3>
-                <p>웅장한 대학들과 낭만적인 펀팅의 도시!</p>
-                <a href="https://www.google.com/search?tbm=isch&q=Cambridge+University+punting" target="_blank" style="color:#0984e3;">📸 사진 구경하기</a>
+            <h2>🇬🇧 소피아의 영국 탐험기</h2>
+            <p>본머스와 케임브리지에서의 멋진 추억들이에요.</p>
+            <div class="grid-layout">
+                <div class="card" style="text-align: left;">
+                    <h3>🏖️ 본머스 (Bournemouth)</h3>
+                    <p>7마일의 황금빛 모래사장이 있는 아름다운 휴양 도시!</p>
+                    <a href="https://www.google.com/search?tbm=isch&q=Bournemouth+beach+England" target="_blank" class="play-btn">📸 사진 보기</a>
+                </div>
+                <div class="card" style="text-align: left;">
+                    <h3>🎓 케임브리지 (Cambridge)</h3>
+                    <p>역사 깊은 대학교와 캠 강의 펀팅이 유명한 도시!</p>
+                    <a href="https://www.google.com/search?tbm=isch&q=Cambridge+University+River+Cam+punting" target="_blank" class="play-btn">📸 사진 보기</a>
+                </div>
             </div>
         </section>
 
         <section id="idol" class="content-section">
-            <h2>🎤 좋아하는 아이돌: 보넥도</h2>
+            <h2>🎤 좋아하는 아이돌: BOYNEXTDOOR</h2>
+            <p>청량함 가득한 원방이들! 보넥도의 모든 소식을 모아보세요. 💙</p>
+            
             <div class="grid-layout">
                 <a href="https://boynextdoor-official.com/" target="_blank" class="card"><div class="card-icon">🏠</div><span class="card-title">공식 홈</span></a>
                 <a href="https://weverse.io/boynextdoor" target="_blank" class="card"><div class="card-icon">💬</div><span class="card-title">위버스</span></a>
-                <a href="https://www.youtube.com/@BOYNEXTDOOR_official" target="_blank" class="card"><div class="card-icon">📺</div><span class="card-title">공식 유튜브</span></a>
+                <a href="https://www.youtube.com/@BOYNEXTDOOR_official" target="_blank" class="card"><div class="card-icon">📺</div><span class="card-title">유튜브</span></a>
                 <a href="https://www.youtube.com/results?search_query=BOYNEXTDOOR+stage+mix" target="_blank" class="card"><div class="card-icon">✨</div><span class="card-title">교차편집</span></a>
+            </div>
+
+            <div class="info-box">
+                <h3>📰 보넥도 최신 뉴스</h3>
+                <ul class="info-list">
+                    <li><a href="https://www.google.com/search?q=BOYNEXTDOOR+뉴스&tbm=nws" target="_blank">보이넥스트도어 최신 활동 및 인터뷰 소식</a></li>
+                    <li><a href="https://www.google.com/search?q=보이넥스트도어+컴백+앨범&tbm=nws" target="_blank">새 앨범 발매 및 컴백 관련 최신 뉴스</a></li>
+                    <li><a href="https://www.google.com/search?q=BOYNEXTDOOR+빌보드+차트&tbm=nws" target="_blank">글로벌 차트 및 수상 기록 모아보기</a></li>
+                </ul>
+                <a href="https://www.google.com/search?q=BOYNEXTDOOR+최신+뉴스&tbm=nws" target="_blank" class="more-link">more...</a>
+
+                <h3 style="margin-top:25px;">🗓️ 행사 및 콘서트 소식</h3>
+                <ul class="info-list">
+                    <li><a href="https://www.google.com/search?q=BOYNEXTDOOR+콘서트+일정" target="_blank">단독 콘서트 및 월드 투어 일정 확인</a></li>
+                    <li><a href="https://www.google.com/search?q=보이넥스트도어+팬미팅+이벤트" target="_blank">팬미팅 및 공식 팬 이벤트 소식</a></li>
+                    <li><a href="https://www.google.com/search?q=BOYNEXTDOOR+페스티벌+라인업" target="_blank">축제 및 시상식 출연 라인업 소식</a></li>
+                </ul>
+                <a href="https://www.google.com/search?q=BOYNEXTDOOR+행사+콘서트+일정" target="_blank" class="more-link">more...</a>
             </div>
         </section>
 
         <section id="game" class="content-section">
             <h2>🎮 재미있는 무료 게임</h2>
+            <p>심심할 때 즐길 수 있는 최고의 게임들을 추천해요!</p>
             <div class="grid-layout">
                 <div class="card"><h3>2048</h3><a href="https://play2048.co/" target="_blank" class="play-btn">게임하기</a></div>
-                <div class="card"><h3>Dino</h3><a href="https://chromedino.com/" target="_blank" class="play-btn">게임하기</a></div>
-                <div class="card"><h3>Slither</h3><a href="http://slither.io/" target="_blank" class="play-btn">게임하기</a></div>
+                <div class="card"><h3>Dino Run</h3><a href="https://chromedino.com/" target="_blank" class="play-btn">게임하기</a></div>
+                <div class="card"><h3>Slither.io</h3><a href="http://slither.io/" target="_blank" class="play-btn">게임하기</a></div>
+                <div class="card"><h3>Pac-Man</h3><a href="https://www.google.com/logos/2010/pacman10-i.html" target="_blank" class="play-btn">게임하기</a></div>
+                <div class="card"><h3>Quick Draw</h3><a href="https://quickdraw.withgoogle.com/" target="_blank" class="play-btn">게임하기</a></div>
                 <div class="card"><h3>Tetris</h3><a href="https://tetris.com/play-tetris" target="_blank" class="play-btn">게임하기</a></div>
             </div>
         </section>
@@ -160,19 +192,20 @@
 
     <script>
         function showSection(sectionId) {
-            // 1. 모든 섹션 숨기기
+            // 모든 섹션 숨기기
             const sections = document.querySelectorAll('.content-section');
-            sections.forEach(section => section.classList.remove('active'));
+            sections.forEach(sec => sec.classList.remove('active'));
 
-            // 2. 모든 메뉴의 'active' 스타일 제거
+            // 모든 메뉴의 active 스타일 제거
             const navLinks = document.querySelectorAll('nav a');
             navLinks.forEach(link => link.classList.remove('active'));
 
-            // 3. 클릭한 섹션만 보여주기
+            // 선택한 섹션과 메뉴 활성화
             document.getElementById(sectionId).classList.add('active');
-
-            // 4. 클릭한 메뉴에 'active' 스타일 추가
-            event.currentTarget.classList.add('active');
+            document.getElementById('nav-' + sectionId).classList.add('active');
+            
+            // 페이지 맨 위로 스크롤
+            window.scrollTo(0, 0);
         }
     </script>
 
