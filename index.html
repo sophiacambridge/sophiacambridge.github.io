@@ -10,10 +10,11 @@
             background-color: #fff9fb;
             font-family: "Nanum Gothic", sans-serif;
             color: #333;
-            text-align: center;
             margin: 0;
-            padding-top: 80px; /* 메뉴 높이만큼 여백 */
-            scroll-behavior: smooth;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
         }
 
         /* 상단 고정 메뉴 */
@@ -21,7 +22,7 @@
             position: fixed;
             top: 0;
             width: 100%;
-            background-color: rgba(255, 255, 255, 0.95);
+            background-color: white;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
             z-index: 1000;
             padding: 15px 0;
@@ -32,147 +33,148 @@
             padding: 0;
             display: flex;
             justify-content: center;
-            gap: 20px;
+            gap: 15px;
         }
         nav a {
             text-decoration: none;
             color: #ff7eb3;
             font-weight: bold;
-            padding: 8px 15px;
+            padding: 8px 12px;
             border-radius: 10px;
+            cursor: pointer;
             transition: 0.3s;
         }
-        nav a:hover { background-color: #ffdde1; }
-
-        header {
+        nav a:hover, nav a.active {
             background-color: #ffdde1;
-            padding: 50px 20px;
-            border-radius: 30px;
-            margin: 20px auto;
-            max-width: 800px;
+            color: #ff4d94;
         }
 
-        section {
+        /* 메인 콘텐츠 영역 */
+        main {
+            margin-top: 100px;
+            width: 90%;
+            max-width: 800px;
+            padding-bottom: 50px;
+        }
+
+        /* 섹션 기본 숨김 처리 */
+        .content-section {
+            display: none; /* 처음엔 다 숨겨요 */
             background: white;
-            margin: 40px auto;
-            padding: 30px;
-            max-width: 800px;
-            border-radius: 20px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            padding: 40px;
+            border-radius: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            animation: fadeIn 0.5s ease; /* 나타날 때 부드럽게 */
         }
 
-        h2 { color: #ff7eb3; margin-bottom: 20px; }
+        /* 활성화된 섹션만 보여줌 */
+        .content-section.active {
+            display: block;
+        }
 
-        /* 보넥도 그리드 스타일 */
-        .idol-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-            gap: 15px;
-            margin-top: 20px;
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
-        .idol-link {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 15px;
-            background-color: #f0f7ff;
-            border-radius: 15px;
-            text-decoration: none;
-            border: 1px solid #d1e7ff;
-            transition: 0.3s;
-        }
-        .idol-link:hover { transform: translateY(-5px); background-color: #d1e7ff; }
-        .idol-icon { font-size: 2em; margin-bottom: 5px; }
-        .idol-link span { font-weight: bold; color: #0984e3; font-size: 0.85em; }
 
-        /* 게임 그리드 스타일 */
-        .game-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-        }
-        .game-card {
-            background: #fdfdfd;
-            padding: 15px;
-            border-radius: 15px;
-            border: 1px solid #eee;
-        }
-        .play-btn {
-            display: inline-block;
-            padding: 8px 15px;
-            background-color: #74b9ff;
-            color: white;
-            text-decoration: none;
-            border-radius: 8px;
-            font-weight: bold;
-            font-size: 0.9em;
-        }
-        .preview-link { display: block; font-size: 0.8em; color: #ff7eb3; margin-bottom: 8px; text-decoration: none; }
+        /* 개별 스타일들 */
+        h1, h2 { color: #ff7eb3; }
+        .welcome-img { width: 100%; max-width: 400px; border-radius: 20px; margin: 20px 0; }
+        
+        /* 보넥도 & 게임 그리드 (이전 스타일 유지) */
+        .grid-layout { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 15px; margin-top: 20px; }
+        .card { background: #f8fbff; padding: 20px; border-radius: 15px; border: 1px solid #eef5ff; text-align: center; text-decoration: none; transition: 0.3s; }
+        .card:hover { transform: translateY(-5px); background: #eef5ff; }
+        .card-icon { font-size: 2em; margin-bottom: 10px; }
+        .card-title { font-weight: bold; color: #0984e3; display: block; }
+        
+        .play-btn { display: inline-block; margin-top: 10px; padding: 5px 15px; background: #74b9ff; color: white; border-radius: 5px; text-decoration: none; font-size: 0.8em; }
 
-        footer { padding: 40px 0; color: #888; }
+        footer { margin-top: auto; padding: 30px; color: #aaa; font-size: 0.9em; }
     </style>
 </head>
 <body>
 
     <nav>
         <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#school">학교생활</a></li>
-            <li><a href="uk.html">영국생활</a></li>
-            <li><a href="#idol">보넥도</a></li>
-            <li><a href="#game">게임</a></li>
+            <li><a onclick="showSection('home')" id="link-home" class="active">Home</a></li>
+            <li><a onclick="showSection('school')">학교생활</a></li>
+            <li><a onclick="showSection('uk')">영국생활</a></li>
+            <li><a onclick="showSection('idol')">보넥도</a></li>
+            <li><a onclick="showSection('game')">게임</a></li>
         </ul>
     </nav>
 
-    <header id="home">
-        <h1>Welcome to Sophia's World! ✨</h1>
-        <p>sophiacambridge.github.io에 오신 걸 환영해요</p>
-    </header>
+    <main>
+        <section id="home" class="content-section active">
+            <h1>Welcome to Sophia's World! ✨</h1>
+            <p>소피아의 행복한 공간에 오신 것을 환영합니다.</p>
+            <img src="https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?w=500" alt="Welcome" class="welcome-img">
+            <p>상단 메뉴를 클릭해서 저의 이야기를 구경해 보세요!</p>
+        </section>
 
-    <section id="school">
-        <h2>🏫 학교 생활</h2>
-        <p>친구들과 함께 공부하고 뛰어노는 즐거운 학교 이야기를 담을 거예요.</p>
-    </section>
+        <section id="school" class="content-section">
+            <h2>🏫 학교 생활</h2>
+            <p>친구들과 함께 공부하고 뛰어노는 즐거운 학교 이야기 공간입니다.</p>
+            <p>앞으로 이곳에 재미있는 학교 소식들을 채워나갈 거예요!</p>
+        </section>
 
-    <section id="uk">
-        <h2>🇬🇧 영국 생활 이야기</h2>
-        <p>본머스와 케임브리지의 아름다운 이야기를 확인해 보세요!</p>
-        <a href="uk.html" style="color: #0984e3; font-weight: bold;">[영국 생활 보러가기 클릭]</a>
-    </section>
+        <section id="uk" class="content-section">
+            <h2>🇬🇧 영국 생활 이야기</h2>
+            <div class="card" style="text-align: left; margin-bottom: 20px;">
+                <h3>🏖️ 본머스 (Bournemouth)</h3>
+                <p>영국 남부의 아름다운 해변 도시!</p>
+                <a href="https://www.google.com/search?tbm=isch&q=Bournemouth+beach" target="_blank" style="color:#0984e3;">📸 사진 구경하기</a>
+            </div>
+            <div class="card" style="text-align: left;">
+                <h3>🎓 케임브리지 (Cambridge)</h3>
+                <p>웅장한 대학들과 낭만적인 펀팅의 도시!</p>
+                <a href="https://www.google.com/search?tbm=isch&q=Cambridge+University+punting" target="_blank" style="color:#0984e3;">📸 사진 구경하기</a>
+            </div>
+        </section>
 
-    <section id="idol">
-        <h2>🎤 좋아하는 아이돌: 보넥도</h2>
-        <div class="idol-grid">
-            <a href="https://boynextdoor-official.com/" target="_blank" class="idol-link">
-                <div class="idol-icon">🏠</div><span>공식 홈</span>
-            </a>
-            <a href="https://weverse.io/boynextdoor" target="_blank" class="idol-link">
-                <div class="idol-icon">💬</div><span>위버스</span>
-            </a>
-            <a href="https://www.youtube.com/@BOYNEXTDOOR_official" target="_blank" class="idol-link">
-                <div class="idol-icon">📺</div><span>유튜브</span>
-            </a>
-            <a href="https://www.youtube.com/results?search_query=BOYNEXTDOOR+stage+mix" target="_blank" class="idol-link">
-                <div class="idol-icon">✨</div><span>교차편집</span>
-            </a>
-        </div>
-    </section>
+        <section id="idol" class="content-section">
+            <h2>🎤 좋아하는 아이돌: 보넥도</h2>
+            <div class="grid-layout">
+                <a href="https://boynextdoor-official.com/" target="_blank" class="card"><div class="card-icon">🏠</div><span class="card-title">공식 홈</span></a>
+                <a href="https://weverse.io/boynextdoor" target="_blank" class="card"><div class="card-icon">💬</div><span class="card-title">위버스</span></a>
+                <a href="https://www.youtube.com/@BOYNEXTDOOR_official" target="_blank" class="card"><div class="card-icon">📺</div><span class="card-title">공식 유튜브</span></a>
+                <a href="https://www.youtube.com/results?search_query=BOYNEXTDOOR+stage+mix" target="_blank" class="card"><div class="card-icon">✨</div><span class="card-title">교차편집</span></a>
+            </div>
+        </section>
 
-    <section id="game">
-        <h2>🎮 재미있는 무료 게임</h2>
-        <div class="game-grid">
-            <div class="game-card"><h3>2048</h3><a href="https://www.google.com/search?tbm=isch&q=2048+game" target="_blank" class="preview-link">📸 화면보기</a><a href="https://play2048.co/" target="_blank" class="play-btn">플레이</a></div>
-            <div class="game-card"><h3>Dino Run</h3><a href="https://www.google.com/search?tbm=isch&q=google+dino+run" target="_blank" class="preview-link">📸 화면보기</a><a href="https://chromedino.com/" target="_blank" class="play-btn">플레이</a></div>
-            <div class="game-card"><h3>Slither.io</h3><a href="https://www.google.com/search?tbm=isch&q=slither.io" target="_blank" class="preview-link">📸 화면보기</a><a href="http://slither.io/" target="_blank" class="play-btn">플레이</a></div>
-            <div class="game-card"><h3>Pac-Man</h3><a href="https://www.google.com/search?tbm=isch&q=google+pacman" target="_blank" class="preview-link">📸 화면보기</a><a href="https://www.google.com/logos/2010/pacman10-i.html" target="_blank" class="play-btn">플레이</a></div>
-            <div class="game-card"><h3>Quick Draw</h3><a href="https://www.google.com/search?tbm=isch&q=quick+draw+google" target="_blank" class="preview-link">📸 화면보기</a><a href="https://quickdraw.withgoogle.com/" target="_blank" class="play-btn">플레이</a></div>
-            <div class="game-card"><h3>Tetris</h3><a href="https://www.google.com/search?tbm=isch&q=tetris+online" target="_blank" class="preview-link">📸 화면보기</a><a href="https://tetris.com/play-tetris" target="_blank" class="play-btn">플레이</a></div>
-        </div>
-    </section>
+        <section id="game" class="content-section">
+            <h2>🎮 재미있는 무료 게임</h2>
+            <div class="grid-layout">
+                <div class="card"><h3>2048</h3><a href="https://play2048.co/" target="_blank" class="play-btn">게임하기</a></div>
+                <div class="card"><h3>Dino</h3><a href="https://chromedino.com/" target="_blank" class="play-btn">게임하기</a></div>
+                <div class="card"><h3>Slither</h3><a href="http://slither.io/" target="_blank" class="play-btn">게임하기</a></div>
+                <div class="card"><h3>Tetris</h3><a href="https://tetris.com/play-tetris" target="_blank" class="play-btn">게임하기</a></div>
+            </div>
+        </section>
+    </main>
 
     <footer>
         <p>© 2024 Sophia Cambridge. Made with Dad ❤️</p>
     </footer>
+
+    <script>
+        function showSection(sectionId) {
+            // 1. 모든 섹션 숨기기
+            const sections = document.querySelectorAll('.content-section');
+            sections.forEach(section => section.classList.remove('active'));
+
+            // 2. 모든 메뉴의 'active' 스타일 제거
+            const navLinks = document.querySelectorAll('nav a');
+            navLinks.forEach(link => link.classList.remove('active'));
+
+            // 3. 클릭한 섹션만 보여주기
+            document.getElementById(sectionId).classList.add('active');
+
+            // 4. 클릭한 메뉴에 'active' 스타일 추가
+            event.currentTarget.classList.add('active');
+        }
+    </script>
 
 </body>
 </html>
