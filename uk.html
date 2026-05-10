@@ -11,11 +11,39 @@
             color: #333;
             text-align: center;
             margin: 0;
-            padding: 40px 20px;
+            padding-top: 70px;
         }
+
+        /* 메뉴 스타일 (index와 동일하게) */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+            padding: 10px 0;
+        }
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        nav a {
+            text-decoration: none;
+            color: #0984e3;
+            font-weight: bold;
+            font-size: 0.9em;
+            padding: 8px 12px;
+            border-radius: 10px;
+        }
+
         .container {
             max-width: 800px;
-            margin: 0 auto;
+            margin: 20px auto;
             background: white;
             padding: 40px;
             border-radius: 30px;
@@ -35,9 +63,6 @@
             padding-left: 15px;
             margin-bottom: 15px;
         }
-        p { line-height: 1.8; font-size: 1.1em; }
-        
-        /* 사진 보기 버튼 스타일 */
         .photo-link {
             display: inline-block;
             margin-top: 15px;
@@ -48,11 +73,6 @@
             border: 2px solid #0984e3;
             border-radius: 10px;
             font-weight: bold;
-            transition: all 0.3s;
-        }
-        .photo-link:hover {
-            background-color: #0984e3;
-            color: white;
         }
         .back-home {
             display: inline-block;
@@ -64,10 +84,19 @@
             border-radius: 50px;
             font-weight: bold;
         }
-        .back-home:hover { background-color: #0984e3; }
     </style>
 </head>
 <body>
+
+    <nav>
+        <ul>
+            <li><a href="index.html#home">Home</a></li>
+            <li><a href="index.html#school">학교생활</a></li>
+            <li><a href="uk.html" style="color:#ff7eb3;">영국생활</a></li>
+            <li><a href="index.html#idol">보넥도</a></li>
+            <li><a href="index.html#game">게임</a></li>
+        </ul>
+    </nav>
 
     <div class="container">
         <h1>🇬🇧 소피아의 영국 생활 이야기</h1>
@@ -75,23 +104,17 @@
         <div class="city-section">
             <h2 class="city-title">🏖️ 본머스 (Bournemouth)</h2>
             <p><strong>역사:</strong> 본머스는 영국 남부 해안에 위치한 아름다운 휴양 도시예요. 11km나 되는 황금빛 모래사장으로 아주 유명해요!</p>
-            <a href="https://www.google.com/search?tbm=isch&q=Bournemouth+beach+England" target="_blank" class="photo-link">📸 본머스 관련 사진 보기 (Google)</a>
-            <p>여름이면 많은 사람들이 해수욕을 즐기러 오는 활기찬 곳이랍니다.</p>
+            <a href="https://www.google.com/search?tbm=isch&q=Bournemouth+beach+England" target="_blank" class="photo-link">📸 본머스 사진 구경하기</a>
         </div>
 
         <div class="city-section">
             <h2 class="city-title">🎓 케임브리지 (Cambridge)</h2>
             <p><strong>역사:</strong> 1209년에 세워진 세계적인 대학교 도시예요. 캠 강을 따라 세워진 대학 건물들이 정말 아름다워요.</p>
-            <a href="https://www.google.com/search?tbm=isch&q=Cambridge+University+River+Cam+punting" target="_blank" class="photo-link">📸 케임브리지 관련 사진 보기 (Google)</a>
-            <p>배를 타고 강을 지나가는 '펀팅'은 꼭 해봐야 할 경험이에요!</p>
+            <a href="https://www.google.com/search?tbm=isch&q=Cambridge+University+River+Cam+punting" target="_blank" class="photo-link">📸 케임브리지 사진 구경하기</a>
         </div>
 
         <a href="index.html" class="back-home">🏠 메인 화면으로 돌아가기</a>
     </div>
-
-    <footer style="margin-top: 30px; color: #888;">
-        <p>© 2024 Sophia's UK Life</p>
-    </footer>
 
 </body>
 </html>
