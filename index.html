@@ -1,22 +1,101 @@
-<style>
-        /* 게임 카드 스타일 추가 */
-        .game-container {
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sophia의 행복한 공간 ✨</title>
+    <style>
+        /* 기본 스타일 */
+        body {
+            background-color: #fff9fb;
+            font-family: "Nanum Gothic", sans-serif;
+            color: #333;
+            text-align: center;
+            margin: 0;
+            padding-top: 80px; /* 메뉴 높이만큼 여백 */
+            scroll-behavior: smooth;
+        }
+
+        /* 상단 고정 메뉴 */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+            padding: 15px 0;
+        }
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        nav a {
+            text-decoration: none;
+            color: #ff7eb3;
+            font-weight: bold;
+            padding: 8px 15px;
+            border-radius: 10px;
+            transition: 0.3s;
+        }
+        nav a:hover { background-color: #ffdde1; }
+
+        header {
+            background-color: #ffdde1;
+            padding: 50px 20px;
+            border-radius: 30px;
+            margin: 20px auto;
+            max-width: 800px;
+        }
+
+        section {
+            background: white;
+            margin: 40px auto;
+            padding: 30px;
+            max-width: 800px;
+            border-radius: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        h2 { color: #ff7eb3; margin-bottom: 20px; }
+
+        /* 보넥도 그리드 스타일 */
+        .idol-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr; /* 2열로 배치 */
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
             gap: 15px;
             margin-top: 20px;
         }
+        .idol-link {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 15px;
+            background-color: #f0f7ff;
+            border-radius: 15px;
+            text-decoration: none;
+            border: 1px solid #d1e7ff;
+            transition: 0.3s;
+        }
+        .idol-link:hover { transform: translateY(-5px); background-color: #d1e7ff; }
+        .idol-icon { font-size: 2em; margin-bottom: 5px; }
+        .idol-link span { font-weight: bold; color: #0984e3; font-size: 0.85em; }
+
+        /* 게임 그리드 스타일 */
+        .game-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
         .game-card {
-            background: #f9f9f9;
+            background: #fdfdfd;
             padding: 15px;
             border-radius: 15px;
             border: 1px solid #eee;
-            text-align: center;
-        }
-        .game-card h3 {
-            margin: 10px 0;
-            font-size: 1.1em;
-            color: #333;
         }
         .play-btn {
             display: inline-block;
@@ -25,54 +104,75 @@
             color: white;
             text-decoration: none;
             border-radius: 8px;
-            font-size: 0.9em;
             font-weight: bold;
+            font-size: 0.9em;
         }
-        .play-btn:hover { background-color: #0984e3; }
-        
-        .preview-link {
-            display: block;
-            margin-bottom: 8px;
-            font-size: 0.8em;
-            color: #ff7eb3;
-            text-decoration: none;
-        }
+        .preview-link { display: block; font-size: 0.8em; color: #ff7eb3; margin-bottom: 8px; text-decoration: none; }
+
+        footer { padding: 40px 0; color: #888; }
     </style>
+</head>
+<body>
+
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#school">학교생활</a></li>
+            <li><a href="uk.html">영국생활</a></li>
+            <li><a href="#idol">보넥도</a></li>
+            <li><a href="#game">게임</a></li>
+        </ul>
+    </nav>
+
+    <header id="home">
+        <h1>Welcome to Sophia's World! ✨</h1>
+        <p>sophiacambridge.github.io에 오신 걸 환영해요</p>
+    </header>
+
+    <section id="school">
+        <h2>🏫 학교 생활</h2>
+        <p>친구들과 함께 공부하고 뛰어노는 즐거운 학교 이야기를 담을 거예요.</p>
+    </section>
+
+    <section id="uk">
+        <h2>🇬🇧 영국 생활 이야기</h2>
+        <p>본머스와 케임브리지의 아름다운 이야기를 확인해 보세요!</p>
+        <a href="uk.html" style="color: #0984e3; font-weight: bold;">[영국 생활 보러가기 클릭]</a>
+    </section>
+
+    <section id="idol">
+        <h2>🎤 좋아하는 아이돌: 보넥도</h2>
+        <div class="idol-grid">
+            <a href="https://boynextdoor-official.com/" target="_blank" class="idol-link">
+                <div class="idol-icon">🏠</div><span>공식 홈</span>
+            </a>
+            <a href="https://weverse.io/boynextdoor" target="_blank" class="idol-link">
+                <div class="idol-icon">💬</div><span>위버스</span>
+            </a>
+            <a href="https://www.youtube.com/@BOYNEXTDOOR_official" target="_blank" class="idol-link">
+                <div class="idol-icon">📺</div><span>유튜브</span>
+            </a>
+            <a href="https://www.youtube.com/results?search_query=BOYNEXTDOOR+stage+mix" target="_blank" class="idol-link">
+                <div class="idol-icon">✨</div><span>교차편집</span>
+            </a>
+        </div>
+    </section>
 
     <section id="game">
         <h2>🎮 재미있는 무료 게임</h2>
-        <p>제가 추천하는 6가지 게임을 즐겨보세요!</p>
-        
-        <div class="game-container">
-            <div class="game-card">
-                <h3>🔢 2048</h3>
-                <a href="https://www.google.com/search?tbm=isch&q=2048+game+play" target="_blank" class="preview-link">📸 게임 화면 보기</a>
-                <a href="https://play2048.co/" target="_blank" class="play-btn">게임하기</a>
-            </div>
-            <div class="game-card">
-                <h3>🦖 Dino Run</h3>
-                <a href="https://www.google.com/search?tbm=isch&q=google+dino+run+game" target="_blank" class="preview-link">📸 게임 화면 보기</a>
-                <a href="https://chromedino.com/" target="_blank" class="play-btn">게임하기</a>
-            </div>
-            <div class="game-card">
-                <h3>🐍 Slither.io</h3>
-                <a href="https://www.google.com/search?tbm=isch&q=slither.io+gameplay" target="_blank" class="preview-link">📸 게임 화면 보기</a>
-                <a href="http://slither.io/" target="_blank" class="play-btn">게임하기</a>
-            </div>
-            <div class="game-card">
-                <h3>🍕 Pac-Man</h3>
-                <a href="https://www.google.com/search?tbm=isch&q=google+pacman+doodle" target="_blank" class="preview-link">📸 게임 화면 보기</a>
-                <a href="https://www.google.com/logos/2010/pacman10-i.html" target="_blank" class="play-btn">게임하기</a>
-            </div>
-            <div class="game-card">
-                <h3>🎨 Quick, Draw!</h3>
-                <a href="https://www.google.com/search?tbm=isch&q=quick+draw+google+game" target="_blank" class="preview-link">📸 게임 화면 보기</a>
-                <a href="https://quickdraw.withgoogle.com/" target="_blank" class="play-btn">게임하기</a>
-            </div>
-            <div class="game-card">
-                <h3>🧱 Tetris</h3>
-                <a href="https://www.google.com/search?tbm=isch&q=tetris+online+game" target="_blank" class="preview-link">📸 게임 화면 보기</a>
-                <a href="https://tetris.com/play-tetris" target="_blank" class="play-btn">게임하기</a>
-            </div>
+        <div class="game-grid">
+            <div class="game-card"><h3>2048</h3><a href="https://www.google.com/search?tbm=isch&q=2048+game" target="_blank" class="preview-link">📸 화면보기</a><a href="https://play2048.co/" target="_blank" class="play-btn">플레이</a></div>
+            <div class="game-card"><h3>Dino Run</h3><a href="https://www.google.com/search?tbm=isch&q=google+dino+run" target="_blank" class="preview-link">📸 화면보기</a><a href="https://chromedino.com/" target="_blank" class="play-btn">플레이</a></div>
+            <div class="game-card"><h3>Slither.io</h3><a href="https://www.google.com/search?tbm=isch&q=slither.io" target="_blank" class="preview-link">📸 화면보기</a><a href="http://slither.io/" target="_blank" class="play-btn">플레이</a></div>
+            <div class="game-card"><h3>Pac-Man</h3><a href="https://www.google.com/search?tbm=isch&q=google+pacman" target="_blank" class="preview-link">📸 화면보기</a><a href="https://www.google.com/logos/2010/pacman10-i.html" target="_blank" class="play-btn">플레이</a></div>
+            <div class="game-card"><h3>Quick Draw</h3><a href="https://www.google.com/search?tbm=isch&q=quick+draw+google" target="_blank" class="preview-link">📸 화면보기</a><a href="https://quickdraw.withgoogle.com/" target="_blank" class="play-btn">플레이</a></div>
+            <div class="game-card"><h3>Tetris</h3><a href="https://www.google.com/search?tbm=isch&q=tetris+online" target="_blank" class="preview-link">📸 화면보기</a><a href="https://tetris.com/play-tetris" target="_blank" class="play-btn">플레이</a></div>
         </div>
     </section>
+
+    <footer>
+        <p>© 2024 Sophia Cambridge. Made with Dad ❤️</p>
+    </footer>
+
+</body>
+</html>
