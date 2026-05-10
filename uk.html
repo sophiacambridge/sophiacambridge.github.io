@@ -5,9 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sophia의 영국 탐험기 🇬🇧</title>
     <style>
-        /* 산뜻하고 세련된 스타일 */
         body {
-            background-color: #f0f7ff; /* 연한 하늘색 배경 */
+            background-color: #f0f7ff;
             font-family: "Nanum Gothic", sans-serif;
             color: #333;
             text-align: center;
@@ -15,78 +14,57 @@
             padding: 40px 20px;
         }
         .container {
-            max-width: 850px;
+            max-width: 800px;
             margin: 0 auto;
             background: white;
             padding: 40px;
             border-radius: 30px;
-            box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
         }
-        h1 { 
-            color: #0984e3; 
-            font-size: 2em;
-            margin-bottom: 40px;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
-        }
+        h1 { color: #0984e3; margin-bottom: 40px; }
         .city-section {
-            margin-bottom: 60px;
+            margin-bottom: 50px;
             text-align: left;
             padding: 25px;
-            border-radius: 25px;
-            background-color: #fcfcfc;
-            border: 1px solid #f0f0f0;
-            transition: transform 0.3s ease;
-        }
-        .city-section:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 15px rgba(0,0,0,0.05);
+            border-radius: 20px;
+            background-color: #fafafa;
         }
         .city-title {
             color: #ff7eb3;
-            font-size: 1.6em;
-            border-left: 6px solid #ff7eb3;
+            border-left: 5px solid #ff7eb3;
             padding-left: 15px;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
-        .city-img {
-            width: 100%;
-            height: auto;
-            border-radius: 20px;
-            margin: 20px 0;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-        .description {
-            line-height: 1.8;
-            font-size: 1.1em;
-            color: #555;
-            word-break: keep-all;
-        }
-        .highlight {
+        p { line-height: 1.8; font-size: 1.1em; }
+        
+        /* 사진 보기 버튼 스타일 */
+        .photo-link {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 20px;
+            background-color: #ffffff;
             color: #0984e3;
+            text-decoration: none;
+            border: 2px solid #0984e3;
+            border-radius: 10px;
             font-weight: bold;
+            transition: all 0.3s;
+        }
+        .photo-link:hover {
+            background-color: #0984e3;
+            color: white;
         }
         .back-home {
             display: inline-block;
             margin-top: 30px;
-            padding: 15px 35px;
-            background: linear-gradient(135deg, #74b9ff, #0984e3);
+            padding: 15px 30px;
+            background-color: #74b9ff;
             color: white;
             text-decoration: none;
             border-radius: 50px;
             font-weight: bold;
-            font-size: 1.1em;
-            transition: all 0.3s;
         }
-        .back-home:hover {
-            background: linear-gradient(135deg, #0984e3, #0056b3);
-            transform: scale(1.05);
-            box-shadow: 0 5px 15px rgba(9, 132, 227, 0.4);
-        }
-        footer {
-            margin-top: 50px;
-            color: #aaa;
-            font-size: 0.9em;
-        }
+        .back-home:hover { background-color: #0984e3; }
     </style>
 </head>
 <body>
@@ -96,35 +74,23 @@
 
         <div class="city-section">
             <h2 class="city-title">🏖️ 본머스 (Bournemouth)</h2>
-            <div class="description">
-                <p><strong>역사:</strong> 본머스는 영국 남부 해안에 위치한 아름다운 휴양 도시예요. 1810년경 루이스 트레곤웰이라는 사람이 이곳에 집을 지으면서 마을이 시작되었답니다. 7마일(약 11km)이나 되는 <span class="highlight">황금빛 모래사장</span>으로 아주 유명해요!</p>
-            </div>
-            
-            <img src="http://googleusercontent.com/image_collection/image_retrieval/11663598353605163387_0" alt="Bournemouth Pier and Beach" class="city-img">
-            
-            <div class="description">
-                <p>따뜻한 날씨 덕분에 여름이면 많은 사람들이 해수욕을 즐기러 오는 활기찬 곳이에요. 해변을 따라 산책하다 보면 기분이 정말 좋아진답니다.</p>
-            </div>
+            <p><strong>역사:</strong> 본머스는 영국 남부 해안에 위치한 아름다운 휴양 도시예요. 11km나 되는 황금빛 모래사장으로 아주 유명해요!</p>
+            <a href="https://www.google.com/search?tbm=isch&q=Bournemouth+beach+England" target="_blank" class="photo-link">📸 본머스 관련 사진 보기 (Google)</a>
+            <p>여름이면 많은 사람들이 해수욕을 즐기러 오는 활기찬 곳이랍니다.</p>
         </div>
 
         <div class="city-section">
             <h2 class="city-title">🎓 케임브리지 (Cambridge)</h2>
-            <div class="description">
-                <p><strong>역사:</strong> 케임브리지는 1209년에 세워진 세계적인 <span class="highlight">'케임브리지 대학교'</span>로 유명한 도시예요. 캠 강(River Cam)을 따라 세워진 오래된 대학 건물들은 마치 마법 학교처럼 멋지답니다. 뉴턴과 같은 위대한 과학자들이 이곳에서 공부했어요.</p>
-            </div>
-
-            <img src="http://googleusercontent.com/image_collection/image_retrieval/8468252763517396428_0" alt="Cambridge University and Punting" class="city-img">
-            
-            <div class="description">
-                <p>배를 타고 강을 지나가는 <span class="highlight">'펀팅(Punting)'</span>을 하면 케임브리지의 역사를 한눈에 느낄 수 있어요. 저 멀리 보이는 건물들이 정말 웅장하죠?</p>
-            </div>
+            <p><strong>역사:</strong> 1209년에 세워진 세계적인 대학교 도시예요. 캠 강을 따라 세워진 대학 건물들이 정말 아름다워요.</p>
+            <a href="https://www.google.com/search?tbm=isch&q=Cambridge+University+River+Cam+punting" target="_blank" class="photo-link">📸 케임브리지 관련 사진 보기 (Google)</a>
+            <p>배를 타고 강을 지나가는 '펀팅'은 꼭 해봐야 할 경험이에요!</p>
         </div>
 
         <a href="index.html" class="back-home">🏠 메인 화면으로 돌아가기</a>
     </div>
 
-    <footer>
-        <p>© 2024 Sophia's UK Life • Made with Love</p>
+    <footer style="margin-top: 30px; color: #888;">
+        <p>© 2024 Sophia's UK Life</p>
     </footer>
 
 </body>
