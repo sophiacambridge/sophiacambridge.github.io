@@ -106,13 +106,13 @@
         }
         .btn:hover { background: #0984e3; }
 
-        /* 여행 리스트 스타일 */
-        .travel-group { margin-top: 30px; padding: 20px; background: #fdfdfd; border-radius: 15px; border: 1px dashed #d1e7ff; }
-        .travel-list { list-style: none; padding: 0; margin: 15px 0; }
-        .travel-list li { margin-bottom: 8px; padding-left: 20px; position: relative; }
-        .travel-list li::before { content: "📍"; position: absolute; left: 0; }
-        .travel-list a { text-decoration: none; color: #444; font-size: 0.95em; }
-        .travel-list a:hover { color: #0984e3; text-decoration: underline; }
+        /* 정보 그룹 스타일 */
+        .info-group { margin-top: 30px; padding: 20px; background: #fdfdfd; border-radius: 15px; border: 1px dashed #d1e7ff; }
+        .info-list { list-style: none; padding: 0; margin: 15px 0; }
+        .info-list li { margin-bottom: 8px; padding-left: 20px; position: relative; }
+        .info-list li::before { content: "📍"; position: absolute; left: 0; }
+        .info-list a { text-decoration: none; color: #444; font-size: 0.95em; }
+        .info-list a:hover { color: #0984e3; text-decoration: underline; }
         .more-link { color: #ff7eb3; font-weight: bold; font-size: 0.85em; text-decoration: none; }
 
         footer { padding: 30px; color: #bbb; font-size: 0.85em; text-align: center; }
@@ -135,93 +135,82 @@
             <h1>Welcome to Sophia's World! ✨</h1>
             <p>안녕하세요! 소피아의 소중한 추억과 창의적인 꿈이 담긴 공간입니다.</p>
             <img src="https://images.unsplash.com/photo-1526129318478-62ed807ebdf9?w=800" alt="London Bus" style="width:100%; border-radius:20px; margin:20px 0;">
-            <p>상단 메뉴를 클릭해서 영국의 추억과 유용한 도구들을 만나보세요.</p>
+            <p>상단 메뉴를 클릭해서 소피아의 이야기들을 구경해 보세요.</p>
         </section>
 
         <section id="school" class="content-section">
-            <h2>🏫 서울명덕초등학교 소식</h2>
-            <div class="grid-layout">
-                <div class="card">
-                    <span class="card-title">📢 공지사항</span>
-                    <a href="https://myungduk.sen.es.kr/78393/subMenu.do" target="_blank" class="btn">보러가기</a>
-                </div>
-                <div class="card">
-                    <span class="card-title">✉️ 가정통신문</span>
-                    <a href="https://myungduk.sen.es.kr/78394/subMenu.do" target="_blank" class="btn">보러가기</a>
-                </div>
-                <div class="card">
-                    <span class="card-title">📸 느티나리 앨범</span>
-                    <a href="https://myungduk.sen.es.kr/78401/subMenu.do" target="_blank" class="btn">구경하기</a>
-                </div>
+            <h2>🏫 즐거운 학교 생활</h2>
+            <p>이곳은 소피아의 학교 생활 이야기로 채워질 예정입니다.</p>
+            <div style="height: 300px; border: 2px dashed #eee; border-radius: 20px; display: flex; align-items: center; justify-content: center; color: #ccc;">
+                내용 준비 중... ✨
             </div>
         </section>
 
         <section id="uk" class="content-section">
             <h2>🇬🇧 소피아의 영국 생활 기록</h2>
             
-            <div style="margin-top: 30px;">
-                <h3>🎒 영국 학교 탐험</h3>
-                <p>소피아가 영국에서 다녔던 멋진 학교들이에요.</p>
-                <div class="grid-layout">
-                    <div class="card">
-                        <span class="card-title">Malmesbury Park Primary</span>
-                        <a href="https://www.malmesburypark.com/" target="_blank" class="btn">홈페이지</a>
-                        <a href="https://www.google.com/search?tbm=isch&q=Malmesbury+Park+Primary+School" target="_blank" class="btn" style="background:#b2bec3;">📸 사진보기</a>
-                    </div>
-                    <div class="card">
-                        <span class="card-title">Fawcett Primary School</span>
-                        <a href="https://www.fawcett.cambs.sch.uk/" target="_blank" class="btn">홈페이지</a>
-                        <a href="https://www.google.com/search?tbm=isch&q=Fawcett+Primary+School+Cambridge" target="_blank" class="btn" style="background:#b2bec3;">📸 사진보기</a>
-                    </div>
-                    <div class="card">
-                        <span class="card-title">Trumpington Community College</span>
-                        <a href="https://www.trumpingtoncommunitycollege.org.uk/" target="_blank" class="btn">홈페이지</a>
-                        <a href="https://www.google.com/search?tbm=isch&q=Trumpington+Community+College+Cambridge" target="_blank" class="btn" style="background:#b2bec3;">📸 사진보기</a>
-                    </div>
+            <h3>🎒 영국 학교 탐험</h3>
+            <p>영국에 위치한 다양한 학교들을 만나보세요.</p>
+            <div class="grid-layout">
+                <div class="card">
+                    <span class="card-title">Bournemouth University</span>
+                    <a href="https://www.bournemouth.ac.uk/" target="_blank" class="btn">홈페이지</a>
+                    <a href="https://www.google.com/search?tbm=isch&q=Bournemouth+University+Talbot+Campus" target="_blank" class="btn" style="background:#b2bec3;">📸 사진보기</a>
+                </div>
+                <div class="card">
+                    <span class="card-title">Malmesbury Park Primary</span>
+                    <a href="https://www.malmesburypark.com/" target="_blank" class="btn">홈페이지</a>
+                    <a href="https://www.google.com/search?tbm=isch&q=Malmesbury+Park+Primary+School" target="_blank" class="btn" style="background:#b2bec3;">📸 사진보기</a>
+                </div>
+                <div class="card">
+                    <span class="card-title">Fawcett Primary School</span>
+                    <a href="https://www.fawcett.cambs.sch.uk/" target="_blank" class="btn">홈페이지</a>
+                    <a href="https://www.google.com/search?tbm=isch&q=Fawcett+Primary+School+Cambridge" target="_blank" class="btn" style="background:#b2bec3;">📸 사진보기</a>
+                </div>
+                <div class="card">
+                    <span class="card-title">Trumpington Community College</span>
+                    <a href="https://www.trumpingtoncommunitycollege.org.uk/" target="_blank" class="btn">홈페이지</a>
+                    <a href="https://www.google.com/search?tbm=isch&q=Trumpington+Community+College+Cambridge" target="_blank" class="btn" style="background:#b2bec3;">📸 사진보기</a>
                 </div>
             </div>
 
             <hr style="border: 0; border-top: 1px solid #eee; margin: 40px 0;">
 
-            <div>
-                <h3>🗺️ 즐거웠던 영국 여행</h3>
-                <p>영국에서 꼭 가봐야 할 아름다운 명소들이에요.</p>
+            <h3>🗺️ 즐거웠던 영국 여행</h3>
+            <div class="info-group">
+                <span class="card-title">🌟 영국 대표 명소 TOP 5</span>
+                <ul class="info-list">
+                    <li><a href="https://www.google.com/search?q=London+Eye" target="_blank">런던 아이 (London Eye)</a></li>
+                    <li><a href="https://www.google.com/search?q=British+Museum" target="_blank">대영 박물관 (British Museum)</a></li>
+                    <li><a href="https://www.google.com/search?q=Tower+Bridge" target="_blank">타워 브릿지 (Tower Bridge)</a></li>
+                    <li><a href="https://www.google.com/search?q=Big+Ben" target="_blank">빅 벤 (Big Ben)</a></li>
+                    <li><a href="https://www.google.com/search?q=Seven+Sisters+Cliffs" target="_blank">세븐 시스터즈 (Seven Sisters)</a></li>
+                </ul>
+                <a href="https://www.google.com/search?q=best+places+to+visit+in+UK" target="_blank" class="more-link">more...</a>
+            </div>
 
-                <div class="travel-group">
-                    <span class="card-title">🌟 영국 대표 명소 TOP 5</span>
-                    <ul class="travel-list">
-                        <li><a href="https://www.google.com/search?q=London+Eye" target="_blank">런던 아이 (London Eye)</a></li>
-                        <li><a href="https://www.google.com/search?q=British+Museum" target="_blank">대영 박물관 (British Museum)</a></li>
-                        <li><a href="https://www.google.com/search?q=Tower+Bridge" target="_blank">타워 브릿지 (Tower Bridge)</a></li>
-                        <li><a href="https://www.google.com/search?q=Big+Ben" target="_blank">빅 벤 (Big Ben)</a></li>
-                        <li><a href="https://www.google.com/search?q=Seven+Sisters+Cliffs" target="_blank">세븐 시스터즈 (Seven Sisters)</a></li>
-                    </ul>
-                    <a href="https://www.google.com/search?q=best+places+to+visit+in+UK" target="_blank" class="more-link">more...</a>
-                </div>
+            <div class="info-group">
+                <span class="card-title">🏰 English Heritage 명소 TOP 5</span>
+                <ul class="info-list">
+                    <li><a href="https://www.google.com/search?q=Stonehenge" target="_blank">스톤헨지 (Stonehenge)</a></li>
+                    <li><a href="https://www.google.com/search?q=Dover+Castle" target="_blank">도버 성 (Dover Castle)</a></li>
+                    <li><a href="https://www.google.com/search?q=Whitby+Abbey" target="_blank">휘트비 수도원 (Whitby Abbey)</a></li>
+                    <li><a href="https://www.google.com/search?q=Osborne+House" target="_blank">오스본 하우스 (Osborne House)</a></li>
+                    <li><a href="https://www.google.com/search?q=Hadrian's+Wall" target="_blank">하드리아누스 성벽 (Hadrian's Wall)</a></li>
+                </ul>
+                <a href="https://www.english-heritage.org.uk/visit/places/" target="_blank" class="more-link">more...</a>
+            </div>
 
-                <div class="travel-group">
-                    <span class="card-title">🏰 English Heritage 명소 TOP 5</span>
-                    <ul class="travel-list">
-                        <li><a href="https://www.google.com/search?q=Stonehenge" target="_blank">스톤헨지 (Stonehenge)</a></li>
-                        <li><a href="https://www.google.com/search?q=Dover+Castle" target="_blank">도버 성 (Dover Castle)</a></li>
-                        <li><a href="https://www.google.com/search?q=Whitby+Abbey" target="_blank">휘트비 수도원 (Whitby Abbey)</a></li>
-                        <li><a href="https://www.google.com/search?q=Osborne+House" target="_blank">오스본 하우스 (Osborne House)</a></li>
-                        <li><a href="https://www.google.com/search?q=Hadrian's+Wall" target="_blank">하드리아누스 성벽 (Hadrian's Wall)</a></li>
-                    </ul>
-                    <a href="https://www.english-heritage.org.uk/visit/places/" target="_blank" class="more-link">more...</a>
-                </div>
-
-                <div class="travel-group">
-                    <span class="card-title">🌳 National Trust 명소 TOP 5</span>
-                    <ul class="travel-list">
-                        <li><a href="https://www.google.com/search?q=Giant's+Causeway" target="_blank">자이언트 코즈웨이 (Giant's Causeway)</a></li>
-                        <li><a href="https://www.google.com/search?q=Stourhead" target="_blank">스투어헤드 (Stourhead)</a></li>
-                        <li><a href="https://www.google.com/search?q=Fountains+Abbey" target="_blank">파운틴스 수도원 (Fountains Abbey)</a></li>
-                        <li><a href="https://www.google.com/search?q=Mount+Stewart" target="_blank">마운트 스튜어트 (Mount Stewart)</a></li>
-                        <li><a href="https://www.google.com/search?q=Waddesdon+Manor" target="_blank">와데스던 매너 (Waddesdon Manor)</a></li>
-                    </ul>
-                    <a href="https://www.nationaltrust.org.uk/visit" target="_blank" class="more-link">more...</a>
-                </div>
+            <div class="info-group">
+                <span class="card-title">🌳 National Trust 명소 TOP 5</span>
+                <ul class="info-list">
+                    <li><a href="https://www.google.com/search?q=Giant's+Causeway" target="_blank">자이언트 코즈웨이 (Giant's Causeway)</a></li>
+                    <li><a href="https://www.google.com/search?q=Stourhead" target="_blank">스투어헤드 (Stourhead)</a></li>
+                    <li><a href="https://www.google.com/search?q=Fountains+Abbey" target="_blank">파운틴스 수도원 (Fountains Abbey)</a></li>
+                    <li><a href="https://www.google.com/search?q=Mount+Stewart" target="_blank">마운트 스튜어트 (Mount Stewart)</a></li>
+                    <li><a href="https://www.google.com/search?q=Waddesdon+Manor" target="_blank">와데스던 매너 (Waddesdon Manor)</a></li>
+                </ul>
+                <a href="https://www.nationaltrust.org.uk/visit" target="_blank" class="more-link">more...</a>
             </div>
         </section>
 
