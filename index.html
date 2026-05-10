@@ -85,9 +85,12 @@
             border: 1px solid #e1e8ed; 
             text-align: left; 
             transition: 0.3s;
+            display: flex;
+            flex-direction: column;
         }
         .card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
         .card-title { font-weight: bold; color: #ff7eb3; font-size: 1.15em; display: block; margin-bottom: 10px; }
+        .card-desc { font-size: 0.9em; flex-grow: 1; }
         
         /* 버튼 스타일 */
         .btn { 
@@ -129,48 +132,43 @@
     <main>
         <section id="home" class="content-section active">
             <h1>Welcome to Sophia's World! ✨</h1>
-            <p>안녕하세요! 소피아의 소중한 추억과 꿈이 담긴 공간입니다.</p>
-            <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=800" alt="Home" style="width:100%; border-radius:20px; margin:20px 0;">
-            <p>위의 메뉴를 눌러 소피아의 학교 소식과 영국 이야기들을 구경해 보세요.</p>
+            <p>안녕하세요! 소피아의 소중한 추억과 창의적인 꿈이 담긴 공간입니다.</p>
+            <img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=800" alt="Creativity" style="width:100%; border-radius:20px; margin:20px 0;">
+            <p>위의 메뉴를 눌러 소피아의 학교 이야기와 유용한 도구들을 만나보세요.</p>
         </section>
 
         <section id="school" class="content-section">
             <h2>🏫 서울명덕초등학교 소식</h2>
-            <p>우리 학교의 중요한 소식들을 바로 확인할 수 있어요!</p>
             <div class="grid-layout">
                 <div class="card">
                     <span class="card-title">📢 공지사항</span>
-                    <p>학교에서 알려주는 공식 소식들을 확인하세요.</p>
-                    <a href="https://myungduk.sen.es.kr/78393/subMenu.do" target="_blank" class="btn">공지사항 보러가기</a>
+                    <p class="card-desc">우리 학교의 공식 소식들을 빠르게 확인하세요.</p>
+                    <a href="https://myungduk.sen.es.kr/78393/subMenu.do" target="_blank" class="btn">공지사항 가기</a>
                 </div>
                 <div class="card">
                     <span class="card-title">✉️ 가정통신문</span>
-                    <p>부모님께 드리는 소중한 소식지들을 모아두었어요.</p>
-                    <a href="https://myungduk.sen.es.kr/78394/subMenu.do" target="_blank" class="btn">가정통신문 보러가기</a>
+                    <p class="card-desc">부모님과 함께 확인해야 할 학교 안내문들이에요.</p>
+                    <a href="https://myungduk.sen.es.kr/78394/subMenu.do" target="_blank" class="btn">가정통신문 가기</a>
                 </div>
                 <div class="card">
                     <span class="card-title">📸 느티나리 앨범</span>
-                    <p>우리 학교 친구들의 즐거운 활동 사진을 구경해 보세요.</p>
-                    <a href="https://myungduk.sen.es.kr/78401/subMenu.do" target="_blank" class="btn">앨범 구경하기</a>
+                    <p class="card-desc">학교 친구들의 즐거운 활동 모습이 가득해요.</p>
+                    <a href="https://myungduk.sen.es.kr/78401/subMenu.do" target="_blank" class="btn">앨범 보러가기</a>
                 </div>
-            </div>
-            <div style="text-align: center; margin-top: 20px;">
-                <a href="https://myungduk.sen.es.kr/" target="_blank" style="color: #bbb; font-size: 0.9em;">명덕초등학교 공식 홈페이지 바로가기</a>
             </div>
         </section>
 
         <section id="uk" class="content-section">
             <h2>🇬🇧 소피아의 영국 탐험기</h2>
-            <p>본머스의 바다와 케임브리지의 지혜가 담긴 추억들입니다.</p>
             <div class="grid-layout">
                 <div class="card">
                     <span class="card-title">🏖️ 본머스 (Bournemouth)</span>
-                    <p>영국 남부의 따뜻한 햇살과 끝없이 펼쳐진 황금빛 해변이 아름다운 곳이에요.</p>
+                    <p class="card-desc">황금빛 모래사장과 시원한 바다가 펼쳐지는 영국 남부의 휴양지예요.</p>
                     <a href="https://www.google.com/search?tbm=isch&q=Bournemouth+beach+England" target="_blank" class="btn">📸 풍경 사진 보기</a>
                 </div>
                 <div class="card">
                     <span class="card-title">🎓 케임브리지 (Cambridge)</span>
-                    <p>웅장한 대학 건물들 사이로 캠 강에서 즐기는 펀팅은 잊을 수 없는 추억이에요.</p>
+                    <p class="card-desc">강물 위를 배를 타고 지나며 역사적인 대학 건물을 볼 수 있는 곳이에요.</p>
                     <a href="https://www.google.com/search?tbm=isch&q=Cambridge+University+River+Cam+punting" target="_blank" class="btn">📸 풍경 사진 보기</a>
                 </div>
             </div>
@@ -178,29 +176,33 @@
 
         <section id="useful" class="content-section">
             <h2>💡 소피아 추천! 유용한 사이트</h2>
-            <p>공부와 창의력을 쑥쑥 키워주는 보물 같은 곳들이에요.</p>
+            <p>공부와 디자인, 그리고 그림 그리기까지 가능한 보물창고예요.</p>
             <div class="grid-layout">
                 <div class="card">
-                    <span class="card-title">🎨 Canva (캔바)</span>
-                    <p>나만의 발표 자료와 카드를 쉽고 예쁘게 디자인할 수 있어요.</p>
-                    <a href="https://www.canva.com/ko_kr/" target="_blank" class="btn">방문하기</a>
+                    <span class="card-title">🎨 AutoDraw (오토드로우)</span>
+                    <p class="card-desc">대충 그려도 AI가 내가 무엇을 그리려 했는지 알아맞히고 멋진 그림으로 바꿔줘요!</p>
+                    <a href="https://www.autodraw.com/" target="_blank" class="btn">그림 그리러 가기</a>
+                </div>
+                <div class="card">
+                    <span class="card-title">✨ Canva (캔바)</span>
+                    <p class="card-desc">예쁜 템플릿을 사용해 발표 자료나 카드를 멋지게 만들 수 있는 도구예요.</p>
+                    <a href="https://www.canva.com/ko_kr/" target="_blank" class="btn">디자인하러 가기</a>
                 </div>
                 <div class="card">
                     <span class="card-title">🤖 엔트리 (Entry)</span>
-                    <p>블록을 쌓으며 나만의 작품을 만들어보는 코딩 사이트예요.</p>
-                    <a href="https://playentry.org/" target="_blank" class="btn">방문하기</a>
+                    <p class="card-desc">블록 코딩을 통해 나만의 게임이나 애니메이션을 직접 만들어 보세요.</p>
+                    <a href="https://playentry.org/" target="_blank" class="btn">코딩하러 가기</a>
                 </div>
                 <div class="card">
                     <span class="card-title">🦊 리틀팍스</span>
-                    <p>재미있는 애니메이션 영어 동화를 보며 영어와 친해져요.</p>
-                    <a href="https://www.littlefox.co.kr/" target="_blank" class="btn">방문하기</a>
+                    <p class="card-desc">애니메이션 동화를 통해 영어를 재미있는 놀이처럼 배울 수 있어요.</p>
+                    <a href="https://www.littlefox.co.kr/" target="_blank" class="btn">영어 공부하기</a>
                 </div>
             </div>
         </section>
 
         <section id="idol" class="content-section">
             <h2>🎤 좋아하는 아이돌: BOYNEXTDOOR</h2>
-            <p>언제나 에너지를 주는 보넥도! 원방이들의 소식을 확인하세요. 💙</p>
             <div class="grid-layout" style="grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));">
                 <a href="https://weverse.io/boynextdoor" target="_blank" class="card" style="text-align:center;"><span class="card-title">위버스</span></a>
                 <a href="https://www.youtube.com/@BOYNEXTDOOR_official" target="_blank" class="card" style="text-align:center;"><span class="card-title">유튜브</span></a>
